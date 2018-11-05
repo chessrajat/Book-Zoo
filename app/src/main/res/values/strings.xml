@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Book-Zoo</string>
+    <string name="physics">Physics</string>
+    <string name="chemistry">Chemistry</string>
+    <string name="computer">Computer</string>
+    <string name="maths">Maths</string>
+    <string name="my_docs">My Docs</string>
+    <string name="accounts">Accounts</string>
+    <string name="business">Business</string>
+    <string name="economics">Economis</string>
+    <string name="addNew">Add New</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="about"> This application is all about to help you to manage your pdf books and documents
+     easily. Please leave your valuable Feedback. Every little contribution helps . More updated features will be
+        added soon . \n
+        1). create customs sections as you like with different preloaded icons you can choose .\n
+        2). This application is free to use. \n
+        3). After adding file in this application you can delete the original file.\n
+        4). Long press item to delete .</string>
+
+
+    //Admob
+    <string name="admob_app_id">ca-app-pub-8844831487456963~9890697735</string>
+    <string name="rewarding_ad">ca-app-pub-8844831487456963/9429617015</string>
+</resources>

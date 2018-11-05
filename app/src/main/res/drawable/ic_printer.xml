@@ -1,0 +1,15 @@
+<vector android:height="80dp" android:viewportHeight="512"
+    android:viewportWidth="512" android:width="80dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#384949" android:pathData="m482,181h-90v-90h45c24.852,0 45,20.148 45,45zM482,181"/>
+    <path android:fillColor="#3e5959" android:pathData="m120,181h-90v-45c0,-24.852 20.148,-45 45,-45h45zM120,181"/>
+    <path android:fillColor="#ff7816" android:pathData="m512,196v150c0,24.902 -20.098,45 -45,45h-422c-24.902,0 -45,-20.098 -45,-45v-150c0,-24.902 20.098,-45 45,-45h422c24.902,0 45,20.098 45,45zM512,196"/>
+    <path android:fillColor="#ff4b00" android:pathData="m512,196v150c0,24.902 -20.098,45 -45,45h-211v-240h211c24.902,0 45,20.098 45,45zM512,196"/>
+    <path android:fillColor="#deecf1" android:pathData="m422,121v105h-332v-211c0,-8.402 6.598,-15 15,-15h197zM422,121"/>
+    <path android:fillColor="#c6e2e7" android:pathData="m422,121v105h-166v-226h46zM422,121"/>
+    <path android:fillColor="#fdbf00" android:pathData="m451.973,286c0,8.285 -6.719,15 -15,15 -8.285,0 -15,-6.715 -15,-15s6.715,-15 15,-15c8.281,0 15,6.715 15,15zM451.973,286"/>
+    <path android:fillColor="#deecf1" android:pathData="m407,331h-302c-8.402,0 -15,6.598 -15,15v151c0,8.402 6.598,15 15,15h302c8.402,0 15,-6.598 15,-15v-151c0,-8.402 -6.598,-15 -15,-15zM407,331"/>
+    <path android:fillColor="#c6e2e7" android:pathData="m422,346v151c0,8.402 -6.598,15 -15,15h-151v-181h151c8.402,0 15,6.598 15,15zM422,346"/>
+    <path android:fillColor="#3e5959" android:pathData="m452,226c0,8.402 -6.598,15 -15,15h-362c-8.402,0 -15,-6.598 -15,-15s6.598,-15 15,-15h362c8.402,0 15,6.598 15,15zM452,226"/>
+    <path android:fillColor="#384949" android:pathData="m452,226c0,8.402 -6.598,15 -15,15h-181v-30h181c8.402,0 15,6.598 15,15zM452,226"/>
+    <path android:fillColor="#a8d3d8" android:pathData="m417.605,95.395 l-89.98,-90.98c-2.816,-2.824 -6.734,-4.414 -10.625,-4.414h-15v106c0,8.285 6.715,15 15,15h105v-15c0,-3.984 -1.582,-7.793 -4.395,-10.605zM417.605,95.395"/>
+</vector>

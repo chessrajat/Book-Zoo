@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "11539823312",
+    "firebase_url": "https://book-zoo.firebaseio.com",
+    "project_id": "book-zoo",
+    "storage_bucket": "book-zoo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11539823312:android:3d3dbaff589778bc",
+        "android_client_info": {
+          "package_name": "com.websbro.book_zoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11539823312-jfrocq0b90g47i9v5p4qi34pvguvbl94.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6w3FUn0NdwJBAti7xYAE4A8LSS1ZZtUQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
