@@ -81,10 +81,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int permissionCheck1 = ContextCompat.checkSelfPermission(this, "android.permission.READ_EXTERNAL_STORAGE");
         int permissionCheck2 = ContextCompat.checkSelfPermission(this, "android.permission.WRITE_EXTERNAL_STORAGE");
 
+
+
         if(permissionCheck1==0 && permissionCheck2==0){
             if(checkFirstTime) {
                 createFolders();
                 SharedPreferences.Editor editor = pref.edit();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        aboutDialog();
+                    }
+                },3000);
                 editor.putBoolean("first_time",false);
                 editor.apply();
             }
@@ -167,19 +175,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 optionDialog.dismiss();
-                final Dialog aboutDialog = new Dialog(MainActivity.this);
-                aboutDialog.setContentView(R.layout.about_dialog);
+                aboutDialog();
 
-                Button closeDialogButton = aboutDialog.findViewById(R.id.about_dialog_close);
-                closeDialogButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        aboutDialog.dismiss();
-
-                    }
-                });
-
-                aboutDialog.show();
 
             }
         });
@@ -192,6 +189,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         optionDialog.show();
+    }
+
+    public void aboutDialog(){
+        final Dialog aboutDialog = new Dialog(MainActivity.this);
+        aboutDialog.setContentView(R.layout.about_dialog);
+
+        Button closeDialogButton = aboutDialog.findViewById(R.id.about_dialog_close);
+        closeDialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aboutDialog.dismiss();
+
+            }
+        });
+
+        aboutDialog.show();
     }
 
 
@@ -230,7 +243,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Creating some predefined folders for user to see on app start , Users can delete these and change according to needs
     private void createFolders() {
 
-        String[] folders = {getString(R.string.my_docs)};
+        String[] folders = {getString(R.string.my_docs),getString(R.string.physics),getString(R.string.chemistry),
+                           getString(R.string.maths),getString(R.string.computer),
+                            getString(R.string.economics),getString(R.string.business),
+                            getString(R.string.accounts)};
 
 
         File directory = new File(Environment.getExternalStorageDirectory(), getString(R.string.app_name));
