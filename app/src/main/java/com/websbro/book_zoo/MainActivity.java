@@ -87,12 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(checkFirstTime) {
                 createFolders();
                 SharedPreferences.Editor editor = pref.edit();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        aboutDialog();
-                    }
-                },3000);
+                aboutDialog();
                 editor.putBoolean("first_time",false);
                 editor.apply();
             }
@@ -243,10 +238,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Creating some predefined folders for user to see on app start , Users can delete these and change according to needs
     private void createFolders() {
 
-        String[] folders = {getString(R.string.my_docs),getString(R.string.physics),getString(R.string.chemistry),
-                           getString(R.string.maths),getString(R.string.computer),
-                            getString(R.string.economics),getString(R.string.business),
-                            getString(R.string.accounts)};
+        String[] folders = {getString(R.string.my_docs)};
 
 
         File directory = new File(Environment.getExternalStorageDirectory(), getString(R.string.app_name));

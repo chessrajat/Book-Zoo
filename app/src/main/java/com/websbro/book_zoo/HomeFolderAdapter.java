@@ -69,7 +69,6 @@ public class HomeFolderAdapter extends BaseAdapter {
         }
         final HomeFolder homeFolder = (HomeFolder) this.getItem(position);
         TextView folderName = convertView.findViewById(R.id.folder_name);
-        saveId(homeFolder.getName(),Integer.toString(position));
         ImageView folderIcon = convertView.findViewById(R.id.folder_icon);
         if(homeFolder.getDrawable()!=null){
             folderIcon.setImageDrawable(homeFolder.getDrawable());

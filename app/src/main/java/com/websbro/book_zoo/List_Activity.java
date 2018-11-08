@@ -47,8 +47,8 @@ public class List_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("application/pdf");
-                intent = Intent.createChooser(intent,"choose");
-                startActivityForResult(intent,1);
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
+                startActivityForResult(Intent.createChooser(intent,"choose"),1);
             }
         });
 
@@ -70,32 +70,46 @@ public class List_Activity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        boolean test = false;
-        if(requestCode==1 && resultCode==RESULT_OK && data!=null){
+
+        if(requestCode==1 && resultCode==RESULT_OK && data!=null) {
             //Getting the uri of file selected by user and get the path to get the filename , convert
             // uri into input stream and create destination file and copy that inputstream into destination file
-            Uri selectedFile = data.getData();
+            if (data.getClipData() != null) {
+                for (int i = 0; i < data.getClipData().getItemCount(); i++) {
+                    Uri selectedFile = data.getClipData().getItemAt(i).getUri();
 
 
-            String fileName = getFileName(selectedFile);
+                    copyFile(selectedFile);
+                }
+            } else {
+                Uri selectedFile = data.getData();
 
 
-            File destination = new File(path,fileName);
-            try {
-                InputStream inputStream = getContentResolver().openInputStream(selectedFile);
-                FileUtils.copy(inputStream,destination);
-            }catch (Exception e ){
-                System.out.println(e.getMessage());
-                Toast.makeText(this, "Failed to add File", Toast.LENGTH_LONG).show();
-                test = true;
+                copyFile(selectedFile);
             }
+        }
+    }
+
+    public void copyFile(Uri selectedFile){
+        boolean test = false;
+        String fileName = getFileName(selectedFile);
 
 
-            Intent intent = new Intent(this,MainActivity.class);
-            this.startActivity(intent);
-            if(!test) {
-                Toast.makeText(this, "File added sucessfully", Toast.LENGTH_LONG).show();
-            }
+        File destination = new File(path, fileName);
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(selectedFile);
+            FileUtils.copy(inputStream, destination);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            Toast.makeText(this, "Failed to add File", Toast.LENGTH_LONG).show();
+            test = true;
+        }
+
+
+        Intent intent = new Intent(this, MainActivity.class);
+        this.startActivity(intent);
+        if (!test) {
+            Toast.makeText(this, "File added sucessfully", Toast.LENGTH_LONG).show();
         }
     }
 
