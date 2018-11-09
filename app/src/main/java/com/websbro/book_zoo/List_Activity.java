@@ -47,6 +47,8 @@ public class List_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("application/pdf");
+                String[] mimeType = {"application/pdf"};
+                intent.putExtra(Intent.EXTRA_MIME_TYPES,mimeType);
                 intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
                 startActivityForResult(Intent.createChooser(intent,"choose"),1);
             }
@@ -91,6 +93,7 @@ public class List_Activity extends AppCompatActivity {
     }
 
     public void copyFile(Uri selectedFile){
+        System.out.println("copyFile "+ selectedFile);
         boolean test = false;
         String fileName = getFileName(selectedFile);
 
@@ -116,17 +119,39 @@ public class List_Activity extends AppCompatActivity {
 
 
     public String getFileName(Uri uri) {
-        String result = null;
-        if (uri.getScheme().equals("content")) {
-            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-            try {
-                if (cursor != null && cursor.moveToFirst()) {
-                    result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                }
-            } finally {
+        String result;
+
+        Cursor cursor = null;
+        try {
+            String[] arr = { MediaStore.Images.Media.DATA };
+            cursor = this.getContentResolver().query(uri,  arr, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            result = cursor.getString(column_index);
+            System.out.println("inner "+result);
+        } finally {
+            if (cursor != null) {
                 cursor.close();
             }
         }
+
+        if(result==null) {
+            if (uri.getScheme().equals("content")) {
+                cursor = getContentResolver().query(uri, null, null, null, null);
+                try {
+                    if (cursor != null && cursor.moveToFirst()) {
+                        result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                        System.out.println("inside " + result);
+                    }
+                } finally {
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                }
+            }
+        }
+
+
         if (result == null) {
             result = uri.getPath();
             int cut = result.lastIndexOf('/');
@@ -134,6 +159,14 @@ public class List_Activity extends AppCompatActivity {
                 result = result.substring(cut + 1);
             }
         }
+        if(result!=null){
+            int cut = result.lastIndexOf('/');
+            if(cut != -1){
+                result = result.substring(cut+1);
+            }
+        }
+
+        System.out.println(result);
         return result;
     }
 
@@ -182,6 +215,8 @@ public class List_Activity extends AppCompatActivity {
 
                     pdfDocs.add(pdfDoc);
 
+                }else{
+                    currFile.delete();
                 }
 
             }

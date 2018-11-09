@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      *  -- set different icons to default folder created
      *  -- some pdf files not able to open
      *  -- not using background thread so main thread blocks sometime
+     *  -- unable to open files with password
      */
 
 //    Button click effects
