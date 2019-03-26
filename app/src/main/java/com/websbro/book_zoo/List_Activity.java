@@ -1,5 +1,6 @@
 package com.websbro.book_zoo;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -93,7 +94,6 @@ public class List_Activity extends AppCompatActivity {
     }
 
     public void copyFile(Uri selectedFile){
-        System.out.println("copyFile "+ selectedFile);
         boolean test = false;
         String fileName = getFileName(selectedFile);
 

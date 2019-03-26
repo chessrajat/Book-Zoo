@@ -2,14 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    splits{
-        abi{
-            enable true
-            reset()
-            include "x86","x86_64","arm64-v8a","mips","armeabi","armeabi-v7a"
-            universalApk true
-        }
-    }
 
     defaultConfig {
         applicationId "com.websbro.book_zoo"
@@ -35,7 +27,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.github.GoodieBag:CarouselPicker:v1.1'
-    implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
 
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'

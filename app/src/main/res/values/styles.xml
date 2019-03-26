@@ -13,4 +13,8 @@
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
+    <style name="pdfBar" parent="Theme.AppCompat.DayNight.DarkActionBar">
+
+    </style>
+
 </resources>

@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".List_Activity" />
-        <activity android:name=".Pdf_Activity">
+        <activity android:name=".Pdf_Activity"
+            android:theme="@style/pdfBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

@@ -66,7 +66,7 @@ public class CustomAdapter extends BaseAdapter {
                 intentShareFile.putExtra("android.intent.extra.STREAM", Uri.parse(pdfDoc.getPath()));
                 intentShareFile.putExtra("android.intent.extra.SUBJECT", "Sharing File...");
                 intentShareFile.putExtra("android.intent.extra.TEXT", "Sharing PDF...");
-                context.startActivity(Intent.createChooser(intentShareFile, "Share PDF"));
+                context.startActivity(Intent.createChooser(intentShareFile, "Share this PDF"));
             }
         });
 
@@ -74,7 +74,7 @@ public class CustomAdapter extends BaseAdapter {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openPdfView(pdfDoc.getPath());
+                openPdfView(pdfDoc.getPath(),pdfDoc.getName());
 
             }
         });
@@ -116,9 +116,10 @@ public class CustomAdapter extends BaseAdapter {
 
 
 
-    public void openPdfView(String path){
+    public void openPdfView(String path, String name){
         Intent intent = new Intent(context,Pdf_Activity.class);
         intent.putExtra("path",path);
+        intent.putExtra("name",name);
         context.startActivity(intent);
 
     }
